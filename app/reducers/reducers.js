@@ -1,10 +1,22 @@
-import { types } from './actionTypes';
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+import { types } from '../actions/actionTypes';
 
-export const actionCreators = {
-  searchGiphy: (data) => {
-    return {
-      type: types.SEARCH_GIPHY,
-      data: data
-    };
-  }
-};
+
+import giphys from './giphysReducer';
+
+const rootReducer = combineReducers({
+  giphys,
+  routing: routerReducer
+});
+
+export default rootReducer;
+
+// const filter = (state = '', action) => {
+//     switch (action.type) {
+//         case types.FILTER:
+//             return action.filter;
+//         default:
+//             return state;
+//     }
+// };

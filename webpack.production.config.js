@@ -78,11 +78,12 @@ module.exports = {
             test: /\.json?$/,
             loader: 'json'
         }, {
-            test: /\.scss$/,
-            // we extract the styles into their own .css file instead of having
-            // them inside the js.
-            loader: ExtractTextPlugin.extract('style', 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass')
-        }, {
+            test   : /\.css$/,
+            loaders: ['style-loader', 'css-loader', 'resolve-url-loader']
+          }, {
+            test   : /\.scss$/,
+            loaders: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
+          }, {
             test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
             loader: 'url?limit=10000&mimetype=application/font-woff'
         }, {

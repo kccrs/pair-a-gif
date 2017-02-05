@@ -1,12 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router';
 import App from './components/App';
-import DisplayGiphy from './components/DisplayGiphy';
-import Search from './components/Search';
+import PairGame from './components/PairGame';
 
 export default (
 	<Route path="/" component={App}>
-    {/* <Route path="/display" component={DisplayGiphy} />
-    <Route path="/search" component={Search} /> */}
+    <Route path="/game" component={PairGame} />
 	</Route>
 );

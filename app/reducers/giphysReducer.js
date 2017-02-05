@@ -1,4 +1,4 @@
-import * as types from '../actions/actionTypes';
+// import { types } from '../actions/actionTypes';
 
 const initialState = [];
 
@@ -8,6 +8,8 @@ const giphys = (state = initialState, action) => {
   switch (type) {
     case 'SEARCH_GIPHY':
       return data;
+    default:
+      console.log('No giphys.');
   }
   return state;
 };

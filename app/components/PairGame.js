@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 
 // http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC
 
-export default class App extends Component {
+export default class PairGame extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <section className="App">
+      <section className="PairGame">
         <h1>Pair A Gif</h1>
-        <p>Content here.</p>
+        <p>this is the game area</p>
       </section>
     )
   }
