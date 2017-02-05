@@ -1,0 +1,11 @@
+@import '_reset';
+@import '_variables';
+@import '_mixins';
+
+body {
+  background-color: green;
+}
+
+#root {
+  background-color: blue;
+}
