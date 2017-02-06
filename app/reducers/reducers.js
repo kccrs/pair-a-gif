@@ -1,22 +1,71 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import { types } from '../actions/actionTypes';
 
+import {
+  SELECT_GIPHY,
+  INVALIDATE_GIPHY,
+  REQUEST_GIPHYS,
+  RECEIVE_GIPHYS,
+  SEARCH_GIPHY
+} from '../actions'
 
-import giphys from './giphysReducer';
+const selectedGiphy = (state = 'reactjs', action) => {
+  switch (action.type) {
+    case SELECT_GIPHY:
+      return action.giphy
+    default:
+      return state
+  }
+}
+
+const gifs = (state = {
+  isFetching: false,
+  didInvalidate: false,
+  items: []
+}, action) => {
+  switch (action.type) {
+    case INVALIDATE_GIPHY:
+      return {
+        ...state,
+        didInvalidate: true
+      }
+    case REQUEST_GIPHYS:
+      return {
+        ...state,
+        isFetching: true,
+        didInvalidate: false
+      }
+    case RECEIVE_GIPHYS:
+      return {
+        ...state,
+        isFetching: false,
+        didInvalidate: false,
+        items: action.gifs,
+        lastUpdated: action.receivedAt
+      }
+    default:
+      return state;
+  }
+}
+
+const gifsByGiphy = (state = { }, action) => {
+  switch (action.type) {
+    case INVALIDATE_GIPHY:
+    case RECEIVE_GIPHYS:
+    case REQUEST_GIPHYS:
+      return {
+        ...state,
+        [action.giphy]: gifs(state[action.giphy], action)
+      }
+    default:
+      return state;
+  }
+}
 
 const rootReducer = combineReducers({
-  giphys,
+  gifsByGiphy,
+  selectedGiphy,
   routing: routerReducer
-});
+})
 
 export default rootReducer;
-
-// const filter = (state = '', action) => {
-//     switch (action.type) {
-//         case types.FILTER:
-//             return action.filter;
-//         default:
-//             return state;
-//     }
-// };
