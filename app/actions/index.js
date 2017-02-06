@@ -5,17 +5,11 @@ import fetch from 'isomorphic-fetch';
 
 export const REQUEST_GIPHYS = 'REQUEST_GIPHYS';
 export const RECEIVE_GIPHYS = 'RECEIVE_GIPHYS';
-export const SELECT_GIPHY = 'SELECT_GIPHY';
 export const INVALIDATE_GIPHY = 'INVALIDATE_GIPHY';
 export const SEARCH_GIPHY = 'SEARCH_GIPHY';
 
 export const searchGiphy = giphy => ({
   type: SEARCH_GIPHY,
-  giphy
-})
-
-export const selectGiphy = giphy => ({
-  type: SELECT_GIPHY,
   giphy
 })
 
@@ -38,7 +32,7 @@ export const receiveGiphys = (giphy, json) => ({
 
 const fetchGiphys = giphy => dispatch => {
   dispatch(requestGiphys(giphy))
-  return fetch(`https://www.giphy.com/r/${giphy}.json`)
+  return fetch(`http://API.giphy.com/v1/gifs/search?q=${giphy}&api_key=dc6zaT0xFJmzC`)
     .then(response => response.json())
     .then(json => dispatch(receiveGiphys(giphy, json)))
 }
@@ -51,14 +45,14 @@ const shouldFetchGiphys = (state, giphy) => {
   if (gifs.isFetching) {
     return false
   }
-  return gifs.didInvalidate
+  return gifs.didInvalidate;
 }
 
 export function fetchGiphysIfNeeded(giphy) {
   return (dispatch, getState) => {
     if (shouldFetchGiphys(getState(), giphy)) {
       // Dispatch a thunk from thunk!
-      return dispatch(fetchGiphys(giphy))
+      return dispatch(fetchGiphys(giphy));
     }
   }
 }
