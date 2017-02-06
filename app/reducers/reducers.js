@@ -11,9 +11,9 @@ import {
 const selectedGiphy = (state = 'cats', action) => {
   switch (action.type) {
     case SEARCH_GIPHY:
-      return action.giphy
+      return action.giphy;
     default:
-      return state
+      return state;
   }
 }
 

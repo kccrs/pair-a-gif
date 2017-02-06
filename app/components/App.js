@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import Button from './Button';
+import NavLink from './NavLink';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
   }
 
-  // beginGame() {
-  //
-  // }
-
   render() {
     return (
       <section className="App">
         <Header />
         <section>
-          <Button
+          <NavLink
             id="GoToSearch"
             text="Click here to begin."
-            handleClick={(e) => this.submitSearch(e)}
           />
         </section>
         <Footer />

@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-const NavLink = ({ filter, children }) => (
+const NavLink = ({ id, filter, children }) => (
   <Link
-    to={filter === 'all' ? '' : filter}
+    className="NavLink"
+    id={id}
+    to={filter}
     activeStyle={{
       textDecoration: 'none',
       color: 'black'
@@ -14,8 +16,9 @@ const NavLink = ({ filter, children }) => (
 );
 
 NavLink.propTypes = {
-  filter: PropTypes.string.isRequired,
-  children: PropTypes.string,
+  id: PropTypes.string,
+  filter: PropTypes.string,
+  children: PropTypes.string.isRequired,
 };
 
 
