@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './Button';
 
 export default class Search extends Component {
   constructor(props) {
@@ -6,6 +7,11 @@ export default class Search extends Component {
     this.state = {
       searchTerms: ''
     };
+  }
+
+  submitSearch(e) {
+    e.preventDefault();
+    console.log('Search submitted');
   }
 
   render() {
@@ -22,7 +28,12 @@ export default class Search extends Component {
               placeholder="Enter category or keyword"
               onChange={(e) => this.setState({ searchTerms: e.target.value })}            />
           </label>
-        </p>
+          <Button
+            id="SearchButton"
+            text="Search"
+            handleClick={(e) => this.submitSearch(e)}
+          />
+          </p>
         <p className="selectArea">
           You can also choose from some of our favorite categories to play Pair a GIF with.
           <button className="cats">Cats</button>

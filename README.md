@@ -1,7 +1,7 @@
 ![](http://jpsierens.com/wp-content/uploads/2016/06/react-eco-wp.gif)
 
-# Pair a GIF
-A boilerplate for playing around with react, redux and react-router with the help of webpack.
+# Pair a GIF!
+This app lets you play the classic game of memory using GIFs of any theme of your choice. 
 
 ## Run the app
 

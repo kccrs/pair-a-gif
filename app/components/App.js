@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import NavLink from './NavLink';
 
 export default class App extends Component {
   constructor(props) {
@@ -8,8 +11,14 @@ export default class App extends Component {
   render() {
     return (
       <section className="App">
-        <h1>Pair A Gif</h1>
-        <p>Content here.</p>
+        <Header />
+        <section>
+          <NavLink
+            id="GoToSearch"
+            text="Click here to begin."
+          />
+        </section>
+        <Footer />
       </section>
     )
   }

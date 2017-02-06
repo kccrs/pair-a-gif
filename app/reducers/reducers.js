@@ -2,19 +2,18 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import {
-  SELECT_GIPHY,
   INVALIDATE_GIPHY,
   REQUEST_GIPHYS,
   RECEIVE_GIPHYS,
   SEARCH_GIPHY
 } from '../actions'
 
-const selectedGiphy = (state = 'reactjs', action) => {
+const selectedGiphy = (state = 'cats', action) => {
   switch (action.type) {
-    case SELECT_GIPHY:
-      return action.giphy
+    case SEARCH_GIPHY:
+      return action.giphy;
     default:
-      return state
+      return state;
   }
 }
 
