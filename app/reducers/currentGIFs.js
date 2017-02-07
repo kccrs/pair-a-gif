@@ -176,7 +176,10 @@ const initialState = [
 const currentGIFs = (state = initialState, action) => {
   switch (action.type) {
     case GET_GIPHYS:
-      return action.data
+      return {
+        state,
+        currentGIFs: action.data
+      }
     default:
       return state
   }

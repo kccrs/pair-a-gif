@@ -9,12 +9,12 @@ import Root from './containers/Root';
 
 require('./styles/style.scss');
 
-const store = configureStore();
-const history = syncHistoryWithStore(browserHistory, store);
+// const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, configureStore);
 
 render(
   <AppContainer>
-    <Root store={store} history={history} />
+    <Root store={configureStore} history={history} />
   </AppContainer>,
   document.getElementById('root')
 );
@@ -24,7 +24,7 @@ if (module.hot) {
     const NewRoot = require('./containers/Root').default;
     render(
       <AppContainer>
-        <NewRoot store={store} history={history} />
+        <NewRoot store={configureStore} history={history} />
       </AppContainer>,
       document.getElementById('root')
     );

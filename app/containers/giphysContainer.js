@@ -1,5 +1,10 @@
 import { connect } from 'react-redux';
-import { actionCreators } from '../actions/giphyActions';
+import {
+  getGiphys,
+  setKeywords,
+  receiveGiphys,
+  fetchGiphys
+} from '../actions/giphyActions';
 
 const mapStateToProps = (state) => {
   return { currentGIFs: state.currentGIFs };
@@ -8,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getGiphys: (data) => {
-       dispatch(actionCreators.getGiphys(data));
+       dispatch(getGiphys(data));
      }
   };
 };

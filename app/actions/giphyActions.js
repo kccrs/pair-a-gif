@@ -1,42 +1,47 @@
 
-import { types } from './actionTypes';
+import {
+  GET_GIPHYS,
+  SET_KEYWORDS,
+  RECEIVE_GIPHYS
+} from './actionTypes';
 
-export const actionCreators = {
+export const getGiphys = data => ({
+  type: GET_GIPHYS,
+  data
+})
 
-  getGiphys: (data) => {
-    return {
-      type: types.GET_GIPHYS,
-      data: data
-    };
-  },
+export const setKeywords = data => ({
+  type: SET_KEYWORDS,
+  data
+})
 
-  setKeywords: (data) => {
-    return {
-      type: types.SET_KEYWORDS,
-      data: data
-    };
-  },
+export const receiveGiphys = data => ({
+  type: RECEIVE_GIPHYS,
+  data
+})
 
-  receiveGiphys: (data) => {
-    return {
-      type: types.RECEIVE_GIPHYS,
-      data: data
-    };
-  }
-}
-
-class fetchGiphys {
-  static getGiphys(currentKeywords) {
-    return fetch(`http://api.giphy.com/v1/gifs/search?q=${currentKeywords}&api_key=dc6zaT0xFJmzC`)
-    .then(response => {
-      console.log(response);
-      return response.json();
-    }).catch(error => {
+export const fetchGiphys = data => dispatch => {
+  dispatch(getGiphys(data))
+  return fetch(`http://api.giphy.com/v1/gifs/search?q=${data}&api_key=dc6zaT0xFJmzC`)
+    .then(response => response.json())
+    .then(json => dispatch(getGiphys(data, json)))
+    .catch(error => {
       console.log(error);
-    });
-  }
+    })
 }
-export default fetchGiphys;
+
+// export const fetchGiphys = {
+//   static getGiphys(currentKeywords) {
+//     return fetch(`http://api.giphy.com/v1/gifs/search?q=${currentKeywords}&api_key=dc6zaT0xFJmzC`)
+//     .then(response => {
+//       console.log(response);
+//       return response.json();
+//     }).catch(error => {
+//       console.log(error);
+//     });
+//   }
+// }
+// export default fetchGiphys;
 
 // export const fetchCurrentLocalForecast = (location) => {
 //   const lat = location.coords.latitude;
