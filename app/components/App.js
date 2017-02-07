@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux'
 import Header from './Header';
 import Footer from './Footer';
 import NavLink from './NavLink';
+import PlayGame from './PlayGame';
+
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
+
+
+  componentDidMount() {
+    console.log('component mounted', this.props);
+    // dispatch(getGiphys(currentGIFs));
   }
 
   render() {
+
     return (
       <section className="App">
         <Header />
@@ -17,6 +24,7 @@ export default class App extends Component {
             id="GoToSearch"
             text="Click here to begin."
           />
+          <PlayGame />
         </section>
         <Footer />
       </section>

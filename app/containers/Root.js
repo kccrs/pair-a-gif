@@ -1,9 +1,8 @@
+import 'babel-polyfill';
 import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import routes from '../routes';
 import { Router } from 'react-router';
-// import App from './components/App';
-
+import routes from '../routes';
 
 export default class Root extends Component {
   render() {

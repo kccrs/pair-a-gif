@@ -18,8 +18,7 @@ const NavLink = ({ id, filter, children }) => (
 NavLink.propTypes = {
   id: PropTypes.string,
   filter: PropTypes.string,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string,
 };
-
 
 export default NavLink;

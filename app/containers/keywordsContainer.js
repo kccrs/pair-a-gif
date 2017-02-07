@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import { actionCreators } from '../actions/index';
+import { actionCreators } from '../actions/giphyActions';
 
 const mapStateToProps = (state) => {
-  return { giphys: state.giphys };
+  return { currentKeywords: state.keywords };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    searchGiphy: (data) => {
-      dispatch(actionCreators.searchGiphy(data));
-    }
+    setKeywords: (data) => {
+       dispatch(actionCreators.setKeywords(data));
+     }
   };
 };
 
