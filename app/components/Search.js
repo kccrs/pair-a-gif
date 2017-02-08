@@ -5,7 +5,7 @@ export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerms: ''
+      currentKeywords: ''
     };
   }
 
@@ -24,9 +24,9 @@ export default class Search extends Component {
             What category would you like to choose?
             <input
               type="text"
-              value={this.state.searchTerms}
+              value={this.state.currentKeywords}
               placeholder="Enter category or keyword"
-              onChange={(e) => this.setState({ searchTerms: e.target.value })}            />
+              onChange={(e) => this.setState({ currentKeywords: e.target.value })}           />
           </label>
           <Button
             id="SearchButton"

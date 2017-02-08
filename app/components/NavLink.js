@@ -1,25 +1,24 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 
-const NavLink = ({ id, filter, children }) => (
-  <Link
-    className="NavLink"
-    id={id}
-    to={filter}
-    activeStyle={{
-      textDecoration: 'none',
-      color: 'black'
-    }}
-  >
-    {children}
-  </Link>
-);
+export default class NavLink extends Component {
+  render() {
+    return (
+      <Link
+        className="NavLink"
+        id={this.props.id}
+        activeStyle={{
+          textDecoration: 'none',
+          color: 'black'
+        }}
+      >
+        {this.props.children}
+      </Link>
+    );
+  }
+}
 
 NavLink.propTypes = {
   id: PropTypes.string,
-  filter: PropTypes.string,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string,
 };
-
-
-export default NavLink;

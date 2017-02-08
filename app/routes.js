@@ -6,7 +6,7 @@ import PlayGame from './components/PlayGame';
 import Search from './components/Search';
 
 export default (
-  <Route path="/(:filter)" component={App} >
+  <Route path="/" component={App} >
     <Route path="/game" component={PlayGame} />
     <Route path="/search" component={Search} />
 	</Route>
