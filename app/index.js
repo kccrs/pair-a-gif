@@ -9,7 +9,6 @@ import Root from './containers/Root';
 
 require('./styles/style.scss');
 
-// const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, configureStore);
 
 render(

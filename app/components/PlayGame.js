@@ -11,7 +11,6 @@ export default class PlayGame extends Component {
 
   componentDidMount() {
     // const { dispatch, currentGIFs, currentKeywords } = this.props;
-    console.log('is this mounting??')
     // console.log('component mounted', this.props);
     // dispatch(fetchGiphys(currentGIFs));
   }

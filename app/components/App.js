@@ -6,11 +6,6 @@ import PlayGame from './PlayGame';
 
 export default class App extends Component {
 
-  componentDidMount() {
-    console.log('component mounted');
-    // dispatch(getGiphys(currentGIFs));
-  }
-
   render() {
     return (
       <section className="App">
